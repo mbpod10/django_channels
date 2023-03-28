@@ -1,3 +1,3 @@
 ```
-pip install 
+pip install djangorestframework-simplejwt
 ```
