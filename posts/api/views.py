@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .models import Post
-from .api.serializers import PostSerializer
+from ..models import Post
+from .serializers import PostSerializer
 from rest_framework.decorators import action
 
 class PostViewsets(viewsets.ModelViewSet):
