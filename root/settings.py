@@ -22,6 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+load_dotenv(find_dotenv())
 SECRET_KEY = f"{os.getenv('SECRET_KEY')}"
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -39,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'posts',
 
     'rest_framework'
 ]
@@ -73,6 +76,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'root.wsgi.application'
 
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
